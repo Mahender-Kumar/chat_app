@@ -38,10 +38,10 @@ class _HomePageState extends State<HomePage> {
         stream: FirebaseFirestore.instance.collection('users').snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
-            return Text('eroorr');
+            return const Text('eroorr');
           }
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Text('loading');
+            return const Text('loading');
           }
           return ListView(
             children: snapshot.data!.docs

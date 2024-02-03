@@ -54,10 +54,10 @@ class _ChatPageState extends State<ChatPage> {
             widget.receiverUserId, _firebaseAuth.currentUser!.uid),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
-            return Text('Error');
+            return const Text('Error');
           }
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Text('loading');
+            return const Text('loading');
           }
 
           return ListView(
@@ -83,7 +83,7 @@ class _ChatPageState extends State<ChatPage> {
                   : CrossAxisAlignment.start,
           children: [
             Text(data['senderEmail']),
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             ChatBubble(message: data['message']),
           ],
         ),
@@ -102,7 +102,7 @@ class _ChatPageState extends State<ChatPage> {
         ),
         IconButton(
           onPressed: sendMessage,
-          icon: Icon(
+          icon: const Icon(
             Icons.send,
           ),
         )
